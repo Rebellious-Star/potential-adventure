@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Food Adulteration Detection</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="background-gif"></div>
+    <!-- Preloader -->
+<div id="preloader">
+  <div class="dot-loader">
+    <span></span><span></span><span></span>
+  </div>
+</div>
+    <div class="container">
+        <h1>Food Adulteration Detection System</h1>
+        <form id="adulteration-form">
+            {% for field, values in options.items() %}
+                <label for="{{ field }}">{{ field.replace("_", " ").title() }}</label>
+                <select name="{{ field }}" required>
+                    {% for value in values %}
+                        <option value="{{ value }}">{{ value }}</option>
+                    {% endfor %}
+                </select>
+            {% endfor %}
+            <button type="submit">Check Action</button>
+        </form>
+        <div id="result"></div>
+    </div>
+    <script src="/static/script.js"></script>
+</body>
+</html>
